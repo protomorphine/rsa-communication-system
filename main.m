@@ -9,28 +9,28 @@ disp(['q = ', num2str(q)]);
 
 % Генерация ключей
 disp('Ключи:');
-[n, phi, e, d] = my_key_gen(p, q);
+[n, phi, e, d] = key_gen(p, q);
 disp(['n = pq = ', num2str(n)]);
 disp(['phi = (p - 1)(q - 1) = ', num2str(phi)]);
 disp(['Закрытый ключ e = ', num2str(e)]);
 disp(['Открытый ключ d = ', num2str(d)]);
 
 % Кодирование сообщения
-m = my_A44_to_Z44(a);
+m = A44_to_Z44(a);
 disp('Закодированное сообщение: ');
 disp(m)
 
 % Шифрование сообщения
-c = my_shifr_rsa(m, d, n);
+c = shifr_rsa(m, d, n);
 disp('Зашифрованное сообщение :')
 disp(c);
 
 % Дешифрования сообщения
-m_ = my_deshifr_rsa(c, e, n);
+m_ = deshifr_rsa(c, e, n);
 disp('Дешифрованное сообщение:');
 disp(m_);
 
 % Декодирование сообщения
-a_ = my_Z44_to_A44(m_);
+a_ = Z44_to_A44(m_);
 disp('Декодированное сообщение: ')
 disp(a_);
